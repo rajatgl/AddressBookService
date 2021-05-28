@@ -1,7 +1,9 @@
 package com.bridgelabz.addressbookservice.entity;
 
-public class Address {
-    private final int addressId;
+import java.util.Date;
+
+public class AddressBook {
+    private int addressId;
     private String firstName;
     private String lastName;
     private String address;
@@ -10,18 +12,16 @@ public class Address {
     private String zipCode;
     private String phoneNumber;
     private String emailId;
-    private String date;
 
-    public Address(int addressId,
-                   String firstName,
-                   String lastName,
-                   String address,
-                   String city,
-                   String state,
-                   String zipCode,
-                   String phoneNumber,
-                   String emailId,
-                   String date) {
+    public AddressBook(int addressId,
+                       String firstName,
+                       String lastName,
+                       String address,
+                       String city,
+                       String state,
+                       String zipCode,
+                       String phoneNumber,
+                       String emailId) {
         this.addressId = addressId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -31,7 +31,23 @@ public class Address {
         this.zipCode = zipCode;
         this.phoneNumber = phoneNumber;
         this.emailId = emailId;
-        this.date = date;
+    }
+    public AddressBook(String firstName,
+                       String lastName,
+                       String address,
+                       String city,
+                       String state,
+                       String zipCode,
+                       String phoneNumber,
+                       String emailId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.phoneNumber = phoneNumber;
+        this.emailId = emailId;
     }
 
     public int getAddressId() {
@@ -70,10 +86,6 @@ public class Address {
         return emailId;
     }
 
-    public String getDate() {
-        return date;
-    }
-
     @Override
     public String toString() {
         return "Address{" +
@@ -86,7 +98,6 @@ public class Address {
                 ", zipCode='" + zipCode + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", emailId='" + emailId + '\'' +
-                ", date='" + date + '\'' +
                 '}';
     }
 }
