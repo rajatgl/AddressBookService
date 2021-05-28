@@ -78,4 +78,17 @@ public class AddressTable extends AddressTableUtils {
         return addressBooks;
     }
 
+    public List<AddressBook> retrieve(int addressId){
+        List<AddressBook> addressBooks = new ArrayList<AddressBook>();
+        String selectQuery = "select * from address_book where `addressId`="+addressId;
+        try{
+            addressBooks = executeQuery(selectQuery);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return addressBooks;
+    }
+
+
+
 }

@@ -13,13 +13,24 @@ public class Main {
         AddressTable addressTable = new AddressTable();
 
         //insert address book
-        addressTable.create(addressBook1);
+        //addressTable.create(addressBook1);
 
         //retrieve all address books
         List<AddressBook> addressBooks = addressTable.retrieveAll();
         for (AddressBook addressBook: addressBooks) {
             System.out.println(addressBook.toString());
         }
+
+        //retrieve specific address book
+        addressBooks = addressTable.retrieve(1);
+        for (AddressBook addressBook: addressBooks) {
+            System.out.println(addressBook.toString());
+        }
+
+
+
+
+
 
     }
 }
