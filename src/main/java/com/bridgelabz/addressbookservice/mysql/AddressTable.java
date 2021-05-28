@@ -89,6 +89,15 @@ public class AddressTable extends AddressTableUtils {
         return addressBooks;
     }
 
+    //update phone number by addressId
+    public void updatePhoneNumber(int addressId,String phone){
+        try{
+            updatePhone(addressId,phone);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

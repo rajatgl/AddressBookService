@@ -51,14 +51,14 @@ public abstract class AddressTableUtils {
     }
 
     //Usage of prepared statement
-    protected Integer updateSalary(double salary, int key) throws SQLException {
+    protected Integer updatePhone(int addressId, String phone) throws SQLException {
         Integer isSuccessful = 0;
         Connection connection = MySqlConfig.getMySqlInstance().getSqlConnection("root","password120596");
         try{
-            String query ="Update employee_payroll set basic_pay=? where Id=?";
+            String query ="Update address_book set phone=? where addressId=?";
             PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setDouble(1,salary);
-            stmt.setInt(2,key);
+            stmt.setInt(2,addressId);
+            stmt.setString(1,phone);
             try{
                 isSuccessful = stmt.executeUpdate();
             }finally {

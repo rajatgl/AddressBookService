@@ -27,6 +27,12 @@ public class Main {
             System.out.println(addressBook.toString());
         }
 
+        //update phone number using prepared statement
+        addressTable.updatePhoneNumber(1,"8975755112");
+        addressBooks = addressTable.retrieve(1);
+        for (AddressBook addressBook: addressBooks) {
+            System.out.println(addressBook.toString());
+        }
 
 
 
