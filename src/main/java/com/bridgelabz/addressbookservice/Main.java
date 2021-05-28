@@ -34,9 +34,8 @@ public class Main {
             System.out.println(addressBook.toString());
         }
 
-
-
-
-
+        //retrieve record count
+        int count = addressTable.countRecords();
+        System.out.println("Number of records: "+count);
     }
 }

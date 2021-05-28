@@ -17,6 +17,7 @@ public class AddressTable extends AddressTableUtils {
         }
     }
 
+
     /**
      *
      * @param resultSet connection of selected items
@@ -96,6 +97,17 @@ public class AddressTable extends AddressTableUtils {
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    //retrieve count
+    public int countRecords(){
+        int count=0;
+        try{
+            count = recordCount();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return count;
     }
 
 

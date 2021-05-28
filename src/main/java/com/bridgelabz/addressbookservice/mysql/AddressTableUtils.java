@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.List;
 
 public abstract class AddressTableUtils {
+    int count = 0;
     /**
      *
      * @param query to be executed [belongs to DDL]
@@ -95,6 +96,29 @@ public abstract class AddressTableUtils {
             connection.close();
         }
         return list;
+    }
+
+    protected int recordCount() throws SQLException {
+        int count =0;
+        Connection connection = MySqlConfig.getMySqlInstance().getSqlConnection("root","password120596");
+        try{
+            Statement stmt = connection.createStatement();
+            try{
+                String query = "select count(*) as BOOK_SIZE from address_book";
+                ResultSet resultSet = stmt.executeQuery(query);
+                try{
+                    while (resultSet.next())
+                        count = resultSet.getInt("BOOK_SIZE");
+                }finally {
+                    resultSet.close();
+                }
+            }finally {
+                stmt.close();
+            }
+        }finally {
+            connection.close();
+        }
+        return count;
     }
 
     protected abstract List<AddressBook> collectData(ResultSet resultSet) throws SQLException;
