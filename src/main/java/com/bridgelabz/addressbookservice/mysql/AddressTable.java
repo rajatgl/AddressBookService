@@ -99,6 +99,15 @@ public class AddressTable extends AddressTableUtils {
         }
     }
 
+    public void deleteAll(){
+        String deleteAllQuery = "DELETE FROM address_book";
+        try{
+            executeUpdate(deleteAllQuery);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     //retrieve count
     public int countRecords(){
         int count=0;
